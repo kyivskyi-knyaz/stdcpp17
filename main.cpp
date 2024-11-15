@@ -1,14 +1,10 @@
 #include "list.hpp"
 #include "vector.hpp"
+#include "string.hpp"
 #include <iostream>
 
 int
 main (void) {
-    int a = 7;
-    m34::Node<int> *root = m34::Node<int>::CreateNode(a);
-    root->next = m34::Node<int>::CreateNode(10);
-    root->next->next = m34::Node<int>::CreateNode(17);
-    root->next->next->next = nullptr;
     /*root->next = m34::Node<int>::CreateNode(b);
     root->next->next = m34::Node<int>::CreateNode(c);
     */
@@ -33,21 +29,22 @@ main (void) {
 pls. Check fake.cpp */
     //std::cout << it << std::endl;
 
-    m34::vector<int> vec(2);
+	
+	char* gubami = "an";
+	m34::String<2> pivo(gubami); 
+    m34::vector<m34::String<2>> vec(1);
 
-	vec.add(1);
-	vec.add(2);
-	vec.add(3);
-	vec.add(4);
-	vec.add(5);
-    vec.add(6);
-    vec.add(7);
-    vec.add(8);
+	char* nogami = "al";
+	m34::String<2> vod(nogami);
 
+
+	vec.add(pivo);
+	vec.add(pivo);
+	vec.push_back(vod);	
 
 	for(auto it = vec.begin(); it != vec.end(); ++it)
 	{
-		std::cout << *it << " ";	
+		std::cout << (*it).c_str() << "\n";	
 	}
 
 	std::cout << "\nCurrent length: " << vec.length() << "\n";

@@ -5,24 +5,38 @@
 namespace m34 {
 template <ssize_t Size> class String {
   private:
-    char *buffer;
-
+    char buffer[Size];
   public:
-    String() { buffer = new char[Size]; }
-    String(char *buffer) {
-        this->buffer = new char[Size];
-        this->buffer = buffer;
-    }
+	String() 
+	{
+		for(int i = 0; i < Size; ++i)
+		{
+			this->buffer[i] = 0;
+		}
+	}
 
-    void operator=(String &other) { this->buffer = other.buffer; }
+	String(char buffer[])
+	{
+		for(int i = 0; i < Size; ++i)
+		{
+			this->buffer[i] = buffer[i];
+		}
+	}
+	
+	void operator=(String &other) 
+	{
+		for(int i = 0; i < Size; ++i)
+		{
+			this->buffer[i] = other.buffer[i];
+		}
+	}
 
     char operator[](int i) { return buffer[i]; }
 
     ssize_t getSize(String string) { return Size; }
 
-    char *c_str() { return buffer; }
+    const char* c_str() { return buffer; }
 
-    ~String() { delete[] buffer; }
 };
 } // namespace m34
 

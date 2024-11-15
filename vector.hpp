@@ -24,7 +24,7 @@ public:
 
 	vector(unsigned int value, const T&& element) : size(value)
 	{
-		buffer = new T[value * sizeof(T)];
+		buffer = new T[value * sizeof(T)]();
 
 		for(unsigned int i = 0; i < size; ++i)
 		{
@@ -51,15 +51,32 @@ public:
 		size = newSize;
 	}
 
-    void add(unsigned int value) 
+    unsigned int add(T value) 
 	{
 		if(putchar >= size)
 		{
-			this->resize(size*2);	
+			this->resize(size * 2);	
 		}
         buffer[putchar] = value;
         ++putchar;
+
+		return size;
     }
+
+	void push_back(T value)
+	{
+		T copy_el = buffer[putchar];
+		if(add(value) > size)
+			this->resize(size * 2);
+		else
+			buffer[putchar - 1] = copy_el;	
+
+		for(unsigned int i = size/2; i > 0; --i)
+		{
+			buffer[i] = buffer[i - 1];
+		}
+		buffer[0] = value;
+	}
 
     T &operator[](unsigned int index) {
         if (index > putchar)
