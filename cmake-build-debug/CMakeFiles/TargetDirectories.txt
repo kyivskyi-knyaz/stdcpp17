@@ -1,0 +1,3 @@
+/home/keng/stdcpp17/cmake-build-debug/CMakeFiles/stdcpp17.dir
+/home/keng/stdcpp17/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/keng/stdcpp17/cmake-build-debug/CMakeFiles/rebuild_cache.dir
