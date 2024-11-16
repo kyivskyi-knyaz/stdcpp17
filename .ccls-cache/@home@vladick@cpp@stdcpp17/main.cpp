@@ -2,34 +2,12 @@
 #include "vector.hpp"
 #include "string.hpp"
 #include <iostream>
+#include <cstdint>
+#include "hash.h"
 
 int
 main (void) {
-    /*root->next = m34::Node<int>::CreateNode(b);
-    root->next->next = m34::Node<int>::CreateNode(c);
-    */
-    /*nm34::iterators::Iterator<m34::Node<int>> beg = root->begin();
-    auto it = *beg;
-
-    std::cout << it.data;*/
-    /*
-    m34::iterators::Iterator<m34::Node<int>> beg = root->begin();
-    m34::iterators::Iterator<m34::Node<int>> end = root->end();
-    auto it = beg;
-    while(it != end)
-      {
-          std::cout << it.pointer->data << std::endl;
-          ++it;
-      }
-    */ //deprecated iterator
-    /*fake v;
-
-      v.f<int>();*/ /* m34::iterators::Iterator<T> * operator don't work with data structures    in which name of field is not 'date'
-
-pls. Check fake.cpp */
-    //std::cout << it << std::endl;
-
-	
+/*
 	char* gubami = "an";
 	m34::String<2> pivo(gubami); 
     m34::vector<m34::String<2>> vec(1);
@@ -46,6 +24,17 @@ pls. Check fake.cpp */
 	{
 		std::cout << (*it).c_str() << "\n";	
 	}
+*/
 
-	std::cout << "\nCurrent length: " << vec.length() << "\n";
+	unordered_map mapa;
+
+	char* guba = "gubami";
+	char* gol  = "keng";
+	char* porn = "anal";
+	char* onyame = "penis";
+
+	vaddPair(mapa, 4, (void*)guba, (void*)gol, (void*)porn, (void*)onyame);
+	
+	std::cout << (char*)getVal(mapa, guba) << " " << (char*)getVal(mapa, porn) << "\n";
+
 }
